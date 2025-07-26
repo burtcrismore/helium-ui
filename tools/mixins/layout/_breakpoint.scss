@@ -1,0 +1,25 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:map";
+@use "../../functions/calc-min-widths" as *;
+
+/*
+=================================================
+Target Breakpoint
+================================================= 
+*/
+@mixin breakpoint($breakpoint, $map) {
+	$min-widths: calc-min-widths($map);
+
+	@if map.has-key($min-widths, $breakpoint) {
+		$min: map.get($min-widths, $breakpoint);
+		@media screen and (min-width: #{$min}) {
+			@content;
+		}
+	} @else {
+		@error "Breakpoint `#{$breakpoint}` not found in map.";
+	}
+}

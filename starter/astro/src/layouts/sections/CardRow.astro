@@ -1,0 +1,21 @@
+---
+import Card from "src/components/Card.astro";
+import Section from "./Section.astro";
+const { content } = Astro.props;
+const { columns, gap, section, cards } = content;
+---
+<Section sectionClass={section.class} aria={section.aria}>
+	<div class="container">
+		<div class="card-row">
+			<div class="card-row__headings mb-md-3">
+				{section.heading && <h2 class="heading mb-xsm-3" id={section.aria}>{section.heading}</h2>}
+				{section.lead && <p class="lead mb-0">{section.lead}</p>}
+			</div>
+			<ul class={`grid ${columns} ${gap} card-row__list`}>
+				{cards.map((card: any) => (
+					<li class="card-row__item"><Card content={card} /></li>
+				))}
+			</ul>
+		</div>
+	</div>
+</Section>

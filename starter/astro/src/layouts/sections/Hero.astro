@@ -1,0 +1,23 @@
+---
+import Section from "./Section.astro";
+import Button from "src/components/Button.astro";
+const { content } = Astro.props;
+---
+<Section sectionClass={content.section.class} aria={content.section.aria}>
+	<div class="container">
+		<div class="hero__content py-md-4 sm:py-md-5 md:py-lg-3">
+			<h1 class="headline mb-sm-5" id={content.section.aria}>{content.headline}</h1>
+			<p class="lead mb-0">{content.lead}</p>
+
+			{content.ctas && content.ctas.length > 0 && (
+				<div class="button__group">
+					{content.ctas.map((cta: any, index: number) => (
+						<Button {...cta} key={index} />
+					))}
+				</div>
+			)}
+		</div>
+	</div>
+</Section>
+
+

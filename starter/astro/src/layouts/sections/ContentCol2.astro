@@ -1,0 +1,49 @@
+---
+import "@heliumComponentStyles/_image.scss";
+import Section from "./Section.astro";
+import Button from "src/components/Button.astro";
+const { content } = Astro.props;
+const { left, right, columns, gap, section } = content;
+---
+<Section sectionClass={section.class} aria={section.aria}>
+	<div class="container">
+		<div class={`grid ${columns} ${gap}`}>
+			<div>
+				{left.image && <img src={left.image} alt={left.image.alt} class="image-fluid" />}
+
+				{left.eyebrow && <p class="eyebrow mb-xsm-5">{left.eyebrow}</p>}
+				{left.heading && <h2 class="heading" id={section.aria}>{left.heading}</h2>}
+				{left.subheading && <h3 class="subheading">{left.subheading}</h3>}
+				{left.lead && <p class="lead">{left.lead}</p>}
+				{left.paragraph && <p class="paragraph">{left.paragraph}</p>}
+				
+				{left.ctas && left.ctas.length > 0 && (
+					<div class="button__group">
+						{left.ctas.map((cta: any, index: number) => (
+							<Button {...cta} key={index} />
+						))}
+					</div>
+				)}
+			</div>
+
+			<div>
+				{right.image && <img src={right.image.src} alt={right.image.alt} class="image-fluid" />}
+
+				{right.eyebrow && <p class="eyebrow mb-xsm-5">{right.eyebrow}</p>}
+				{right.heading && <h2 class="heading" id={section.aria}>{right.heading}</h2>}
+				{right.subheading && <h3 class="subheading">{right.subheading}</h3>}
+				{right.lead && <p class="lead">{right.lead}</p>}
+				{right.paragraph && <p class="paragraph">{right.paragraph}</p>}
+
+				{right.ctas && right.ctas.length > 0 && (
+					<div class="button__group">
+						{right.ctas.map((cta: any, index: number) => (
+							<Button {...cta} key={index} />
+						))}
+					</div>
+				)}
+			</div>
+		</div>
+	</div>
+</Section>
+

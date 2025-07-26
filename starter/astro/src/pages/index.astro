@@ -1,0 +1,128 @@
+---
+import Card from "src/components/Card.astro";
+import Base from "src/layouts/Base.astro";
+import CardRow from "src/layouts/sections/CardRow.astro";
+import ContentCol2 from "src/layouts/sections/ContentCol2.astro";
+import Hero from "src/layouts/sections/Hero.astro";
+
+const seoContent = {
+	title: "Helium UI - A Lightweight, Scalable Front-End Framework for the Modern Web",
+	description: "Helium UI is a modern front-end framework designed for speed, clarity, and customization. Build accessible, responsive websites using scalable design tokens, modular components, and a token-first theming system."
+}
+
+const heroContent = {
+	headline: "Build faster with Helium UI",
+	lead: "A lightweight design system starter that helps you launch projects with consistency, clarity, and speed. Fully customizable — no overrides required.",
+	section: {
+		aria: "hero-banner",
+		class: "hero mb-lg-1"
+	},
+	ctas: [
+		{
+			label: "Get Started",
+			href: "/get-started",
+			variant: "primary",
+			// icon: "link",
+			// iconPosition: "right"
+		},
+		{
+			label: "Learn More",
+			href: "/learn-more",
+			variant: "secondary",
+			// icon: "link",
+			// iconPosition: "right"
+		}
+	],
+}
+
+const introSection = {
+	left: {
+		eyebrow: "Introducing",
+		heading: "Helium UI Split",
+		paragraph: "You can define what appears on each side, including text, images, and CTAs.",
+		ctas: [
+			{
+				label: "Get Started",
+				href: "/get-started",
+				variant: "tertiary",
+				icon: "link",
+				iconPosition: "right"
+			}
+		],
+	},
+	right: {
+		image: {
+			src: "/src/images/placeholder-image.jpg",
+			alt: "image"
+		}
+	},
+	columns: "sm:grid-col-8-4",
+	gap: "g-lg-1 sm:g-lg-5",
+	section: {
+		aria: "intro-section",
+		class: "mb-lg-5"
+	}
+}
+
+const cardData = [
+	{
+		variant: "default",
+		image: {
+			src: "/src/images/placeholder-image.jpg",
+			alt: "image"
+		},
+		title: "Customize Your Theme",
+		link: {
+			url: "https://www.google.com",
+			target: "_blank"
+		},
+		description: "Override tokens and build your brand directly inside the starter."
+	},
+	{
+		variant: "default",
+		image: {
+			src: "/src/images/placeholder-image.jpg",
+			alt: "image"
+		},
+		title: "Use the Starter",
+		link: {
+			url: "#",
+			target: "_self"
+		},
+		description: "Jumpstart your next project using our Astro-based setup."
+	},
+	{
+		variant: "default",
+		image: {
+			src: "/src/images/placeholder-image.jpg",
+			alt: "image"
+		},
+		title: "Explore the Toolkit",
+		link: {
+			url: "#",
+			target: "_self"
+		},
+		description: "Access utilities, mixins, and tokens to scale design."
+	}
+];
+	
+
+
+const cardSection = {
+	section: {
+		class: "card__row",
+		aria: "recommendations",
+		heading: "Recommendations",
+		lead: "A few great places to begin."
+	},
+	columns: "sm:grid-col-2 md:grid-col-3",
+	gap: "g-md-3",
+	cards: cardData,
+}
+---
+
+<Base {seoContent}>
+	<Hero content={heroContent} />
+	<ContentCol2 content={introSection} />
+	<CardRow content={cardSection} />
+</Base>

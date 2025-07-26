@@ -1,0 +1,56 @@
+---
+import "@styles/global.scss";
+import "@heliumComponentStyles/_container.scss";
+import Header from "./landmarks/Header.astro";
+import Footer from "./landmarks/Footer.astro";
+const { seoContent } = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<!-- Charset and Viewport -->
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+		<!-- Page Title & Description -->
+		<title>{ seoContent.title }</title>
+		<meta name="description" content={ seoContent.description } />
+
+		<!-- Canonical URL -->
+		<link rel="canonical" href={ canonicalUrl } />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={ canonicalUrl } />
+		<meta property="og:title" content={ seoContent.title } />
+		<meta property="og:description" content={ seoContent.description } />
+		<!-- Update image later with dynamic path. -->
+		<meta property="og:image" content="https://www.heliumui.com/og-image.png" />
+
+		<!-- Twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={ canonicalUrl } />
+		<meta name="twitter:title" content={ seoContent.title } />
+		<meta name="twitter:description" content={ seoContent.description } />
+		<!-- Update image later with dynamic path. -->
+		<meta name="twitter:image" content="https://www.heliumui.com/og-image.png" />
+
+		<!-- Astro Meta -->
+		<meta name="generator" content={Astro.generator} />
+
+		<!-- favicon -->
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+		<!-- Scripts -->
+		<script src="@scripts/global.js"></script>
+	</head>
+	
+	<body>
+		<Header />
+			<main class="main">
+				<slot/>
+			</main>
+		<Footer />
+	</body>
+</html>

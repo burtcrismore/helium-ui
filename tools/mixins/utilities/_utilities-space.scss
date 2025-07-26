@@ -1,0 +1,52 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:meta";
+@use "../layout/breakpoint" as *;
+
+/*
+=================================================
+Margin
+================================================= 
+*/
+@mixin utilities-space($prefix, $delimiter, $token-name, $space-map, $token-alias, $breakpoint-map) {
+	// Base
+	@each $props, $class in $space-map {
+		@each $alias-key, $base-token in $token-alias {
+			$value: var(--#{$prefix}-#{$token-name}-#{$alias-key});
+
+			.#{$class}-#{$alias-key} {
+				@if meta.type-of($props) == list {
+					@each $prop in $props {
+						#{$prop}: #{$value};
+					}
+				} @else {
+					#{$props}: #{$value};
+				}
+			}
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@each $props, $class in $space-map {
+				@each $alias-key, $base-token in $token-alias {
+					$value: var(--#{$prefix}-#{$token-name}-#{$alias-key});
+
+					.#{$breakpoint-key}#{$delimiter}#{$class}-#{$alias-key} {
+					@if meta.type-of($props) == list {
+						@each $prop in $props {
+							#{$prop}: #{$value};
+						}
+					} @else {
+						#{$props}: #{$value};
+					}
+					}
+				}
+			}
+		}
+	}
+}

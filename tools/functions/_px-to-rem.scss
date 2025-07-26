@@ -1,0 +1,32 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:meta";
+@use "sass:math";
+@use "sass:map";
+
+/*
+=================================================
+Covert PX to REM
+================================================= 
+*/
+// Converts a PX value to REM based on root font size. Recommended always keep root at 16.
+@function px-to-rem($value) {
+	$root-size: 16;
+
+	// Ensure the value is a number
+	@if meta.type-of($value) != "number" {
+		@error "px-to-rem() expects a number but got '#{$value}'";
+	}
+
+	// Convert larger values to rem
+	$rem-value: math.div($value, $root-size) * 1rem;
+
+	// Round to 2 decimal places for cleaner output
+	$multiplier: math.pow(10, 2);
+	$rounded-value: math.div(math.round($rem-value * $multiplier), $multiplier);
+
+	@return $rounded-value;
+}

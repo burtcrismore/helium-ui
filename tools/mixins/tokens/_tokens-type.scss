@@ -1,0 +1,90 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:map";
+@use "../../functions/px-to-rem" as *;
+
+/*
+=================================================
+Type Size
+================================================= 
+*/
+@mixin tokens-type-size($prefix, $token, $base-map, $alias-map, $breakpoints) {
+	// Base (no media query)
+	:root {
+		$base-values: map.get($base-map, "base");
+
+		@each $key, $value in $alias-map {
+			@if map.has-key($base-values, $value) {
+				$size: map.get($base-values, $value);
+				--#{$prefix}-#{$token}-#{$key}: #{px-to-rem($size)};
+			} @else {
+				@warn "Token `#{$value}` not found in base map for `#{$key}` at `base`.";
+			}
+		}
+	}
+
+	// Loop through only the defined breakpoints in base-map (excluding base)
+	@each $breakpoint-key, $breakpoint-values in $base-map {
+		@if $breakpoint-key != "base" {
+			@if map.has-key($breakpoints, $breakpoint-key) {
+				$min-width: map.get($breakpoints, $breakpoint-key);
+
+				@media (min-width: #{px-to-rem($min-width)}) {
+					:root {
+						@each $key, $value in $alias-map {
+							@if map.has-key($breakpoint-values, $value) {
+								$size: map.get($breakpoint-values, $value);
+								--#{$prefix}-#{$token}-#{$key}: #{px-to-rem($size)};
+							} @else {
+								@warn "Token `#{$value}` not found in base map for `#{$key}` at breakpoint `#{$breakpoint-key}`.";
+							}
+						}
+					}
+				}
+			} @else {
+				@warn "Breakpoint `#{$breakpoint-key}` is defined in base map but not found in breakpoints list.";
+			}
+		}
+	}
+}
+
+/*
+=================================================
+Type Weight
+================================================= 
+*/
+@mixin tokens-type-weight($prefix, $token, $base-map, $alias-map) {
+	:root {
+		@each $key, $value in $alias-map {
+			$base-value: map.get($base-map, $value);
+
+			@if $base-value != null {
+				--#{$prefix}-#{$token}-#{$key}: #{$base-value};
+			} @else {
+				@warn "Token `#{$value}` not found in base map for `#{$key}`.";
+			}
+		}
+	}
+}
+
+/*
+=================================================
+Type Line Height
+================================================= 
+*/
+@mixin tokens-type-line-height($prefix, $token, $base-map, $alias-map) {
+	:root {
+		@each $key, $value in $alias-map {
+			$base-value: map.get($base-map, $value);
+
+			@if $base-value != null {
+				--#{$prefix}-#{$token}-#{$key}: #{$base-value};
+			} @else {
+				@warn "Token `#{$value}` not found in base map for `#{$key}`.";
+			}
+		}
+	}
+}

@@ -1,0 +1,79 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "@heliumFunctions/token-prefix" as *;
+
+/*
+=================================================
+Button
+================================================= 
+*/
+.button {
+	font-size: token(type-size-button);
+	font-weight: token(type-weight-button);
+	line-height: token(type-leading-button);
+	text-decoration: none;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all token(duration-moderate) token(timing-ease);
+	border: none;
+	border-radius: token(radius-full);
+
+
+	&__icon--left {
+		margin-right: token(space-xsm-5);
+	}
+	&__icon--right {
+		margin-left: token(space-xsm-5);
+	}
+
+	&:focus {
+		outline: none;
+	}
+	&:focus-visible {
+		outline: 2px solid hotpink;
+		outline-offset: 2px;
+	}
+
+	&--primary {
+		padding: token(space-xsm-5) token(space-md-2);
+		background-color: token(color-action-primary);
+		color: token(color-action-content-primary);
+
+		&:hover {
+			background-color: token(color-action-primary-hover);
+		}
+	}
+
+	&--secondary {
+		padding: token(space-xsm-5) token(space-md-2);
+		background-color: token(color-action-secondary);
+		color: token(color-content-secondary);
+
+		&:hover {
+			background-color: token(color-action-secondary-hover);
+		}
+	}
+
+	&--tertiary {
+		color: token(color-action-content-tertiary);
+
+	}
+
+	&--full {
+		display: flex;
+		width: 100%;
+	}
+
+	&__group {
+		display: flex;
+		gap: token(space-sm-3);
+		margin-top: token(space-md-2);
+	}
+
+}

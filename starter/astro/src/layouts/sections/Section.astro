@@ -1,0 +1,6 @@
+---
+const { aria, sectionClass } = Astro.props;
+---
+<section class={sectionClass} aria-labelledby={aria}>
+	<slot />
+</section>

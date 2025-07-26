@@ -1,0 +1,45 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:meta";
+@use "../layout/breakpoint" as *;
+
+/*
+=================================================
+Atomic
+================================================= 
+*/
+@mixin utilities-atomic($delimiter, $property, $map, $breakpoint-map) {
+	// Base classes
+	@each $key, $value in $map {
+		.#{$key} {
+			@if meta.type-of($property) == list {
+				@each $prop in $property {
+					#{$prop}: #{$value};
+				}
+			} @else {
+				#{$property}: #{$value};
+			}
+		}
+	}
+
+	// Responsive variants
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@each $key, $value in $map {
+				.#{$breakpoint-key}#{$delimiter}#{$key} {
+					@if meta.type-of($property) == list {
+					@each $prop in $property {
+						#{$prop}: #{$value};
+					}
+					} @else {
+					#{$property}: #{$value};
+					}
+				}
+			}
+		}
+	}
+}
+

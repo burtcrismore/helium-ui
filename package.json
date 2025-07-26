@@ -1,0 +1,36 @@
+{
+  "name": "@burtcrismore/helium-ui",
+  "version": "1.0.0-alpha.1",
+  "description": "A lightweight, semantic-driven, front-end framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "files": [
+    "components",
+    "tools",
+    "utilities",
+    "LICENSE",
+    "README.md"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burtcrismore/helium-ui.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "responsive",
+    "front-end",
+    "framework"
+  ],
+  "author": "Burt Crismore",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/burtcrismore/helium-ui/issues"
+  },
+  "homepage": "https://github.com/burtcrismore/helium-ui#readme"
+}

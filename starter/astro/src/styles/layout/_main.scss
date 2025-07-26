@@ -1,0 +1,100 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "@styles/base/settings" as *;
+@use "@heliumMixins/layout/breakpoint" as *;
+@use "@heliumFunctions/token-prefix" as *;
+
+/*
+=================================================
+Main
+================================================= 
+*/
+.main {
+
+	.hero {
+		// margin-bottom: token(space-lg-1);
+		&__content {
+			// padding: token(space-lg-1) 0;
+			border-bottom: 5px solid token(color-border-subtle);
+		}
+		
+	}
+
+	.card-row {
+		&__list {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+		&__item {
+			margin: 0;
+			padding: 0;
+		}
+	}
+	// &__container {
+	// 	display: grid;
+	// 	grid-template-columns: auto;
+	// 	@include breakpoint("sm", $breakpoints) {
+	// 		grid-template-columns: minmax(250px, auto) 1fr;
+	// 	}
+	// 	@include breakpoint("md", $breakpoints) {
+	// 		grid-template-columns: minmax(300px, auto) 1fr;
+	// 	}
+	// }
+
+	// .article {
+	// 	&__banner {
+	// 		padding-top: token(space-md-5);
+	// 		margin-bottom: token(space-md-5);
+	// 		background: token(color-surface-subtle);
+	// 	}
+	// }
+
+	// .section {
+	// 	&__banner {
+	// 		padding-top: token(space-md-5);
+	// 		margin-bottom: token(space-md-5);
+	// 	}
+	// }
+}
+
+/*
+=================================================
+Side Nav
+================================================= 
+*/
+// .sidebar {
+// 	border-right: 1px solid token(color-border-subtle);
+// 	padding: token(space-md-3);
+// }
+// .side-nav {
+// 	position: sticky;
+// 	top: token(space-md-5);
+
+// 	&__list {
+// 		list-style: none;
+// 		margin: 0;
+// 		padding: 0;
+// 	}
+	
+// 	&__link {
+// 		display: block;
+// 		color: token(color-content-default);
+// 		text-decoration: none;
+// 		font-weight: token(type-weight-navigation);
+// 		padding: token(space-sm-4) token(space-sm-4) token(space-sm-4) token(space-sm-5);
+
+// 		&:hover {
+// 			color: token(color-action-primary);
+// 		}
+
+// 		&[aria-current="page"] {
+// 			background-color: token(color-surface-subtle);
+// 			border-radius: token(radius-md);
+// 		}
+
+// 	}
+// }

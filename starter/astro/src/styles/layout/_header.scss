@@ -1,0 +1,119 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "@heliumMixins/layout/breakpoint" as *;
+@use "@styles/base/settings" as *;
+@use "@heliumFunctions/token-prefix" as *;
+
+/*
+=================================================
+Header Nav
+================================================= 
+*/
+.header {
+	border-bottom: 1px solid token(color-border-subtle);
+
+	&-nav {
+	
+		&__brand {
+			padding: 1rem 0;
+		}
+
+		&__container {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			// padding: 0 var(--hui-space-md-2);
+		}
+
+		&__brand-link {
+			display: flex;
+			color: token(color-content-default);
+			font-size: 2.1rem;
+			text-decoration: none;
+			font-weight: 700;
+			letter-spacing: -.02rem;
+			align-items: center;
+			gap: 15px;
+		}
+
+		&__brand-mark {
+			display: grid;
+			grid-template-columns: 30px 1fr;
+			grid-template-rows: 30px 1fr;
+
+			&-svg {
+				width: 30px;
+				fill: token(color-brand-primary);
+				grid-area: 1 / 1 / 2 / 2;
+			}
+			&-bg {
+				background: token(color-surface-page);
+				display: block;
+				width: 30px;
+				height: 30px;
+				grid-area: 1 / 1 / 2 / 2;
+				z-index: -1;
+			}
+		}
+
+		&__list {
+			display: none;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			@include breakpoint("sm", $breakpoints) {
+				display: flex;
+				flex-wrap: wrap;
+			}
+		}
+
+		&__item {
+			margin: 0;
+		}
+
+		&__link {
+			position: relative;
+			text-decoration: none;
+			color: token(color-content-default);
+			padding: token(space-xsm-5) token(space-sm-3);
+			display: block;
+			font-weight: token(type-weight-navigation);
+
+			&[aria-current="page"] {
+				// color: token(color-content-default);
+				// border-bottom: 2px solid token(color-action-primary);
+				background-color: token(color-surface-subtle);
+				border-radius: token(radius-md);
+			}
+		}
+
+		&__content {
+			display: flex;
+			align-items: center;
+		}
+
+		&__control {
+			&:before {
+				content: "";
+				border-left: 1px solid token(color-border-subtle);
+				padding-right: token(space-md-1);
+			}
+		}
+		&__theme-switcher {
+			border: none;
+			background: none;
+			cursor: pointer;
+			padding: 0;
+
+			.icon-sun, .icon-moon {
+				width: 20px;
+				height: 20px;
+			}
+		}
+	}
+}
+

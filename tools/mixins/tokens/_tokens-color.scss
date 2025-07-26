@@ -1,0 +1,38 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:map";
+
+/*
+=================================================
+Color
+================================================= 
+*/
+@mixin tokens-color($prefix, $token, $base-map, $light-map, $dark-map) {
+	:root,
+	[data-theme="light"] {
+		@each $key, $value in $light-map {
+			$base-value: map.get($base-map, $value);
+
+			@if $base-value {
+				--#{$prefix}-#{$token}-#{$key}: #{$base-value};
+			} @else {
+				@warn "Token `#{$value}` not found in `#{$token}` base map for `#{$key}`.";
+			}
+		}
+	}
+
+	[data-theme="dark"] {
+		@each $key, $value in $dark-map {
+			$base-value: map.get($base-map, $value);
+
+			@if $base-value {
+				--#{$prefix}-#{$token}-#{$key}: #{$base-value};
+			} @else {
+				@warn "Token `#{$value}` not found in `#{$token}` base map for `#{$key}`.";
+			}
+		}
+	}
+}

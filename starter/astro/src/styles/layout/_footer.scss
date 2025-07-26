@@ -1,0 +1,65 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "@heliumMixins/layout/breakpoint" as *;
+@use "@styles/base/settings" as *;
+@use "@heliumFunctions/token-prefix" as *;
+
+/* 
+=================================================
+Footer
+================================================= 
+*/
+.footer {
+	padding: token(space-md-4) 0;
+	border-top: 1px solid token(color-border-subtle);
+
+	&__notice {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include breakpoint("md", $breakpoints) {
+			justify-content: left;
+		}
+	}
+	&__copyright, &__version {
+		margin: 0;
+	}
+
+	&__update {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include breakpoint("md", $breakpoints) {
+			justify-content: flex-end;
+		}
+	}
+
+	&__social {
+		font-size: token(font-size-h6);
+		padding-right: token(space-sm-4);
+		color: token(color-neutral-500);
+
+		&:hover {
+			color: token(color-primary-400);
+		}
+	}
+
+	&__divider {
+		padding: 0 token(space-md-1);
+		margin: 0;
+	}
+
+	&__link {
+		text-decoration: none;
+		color: token(color-neutral-500);
+
+		&:hover {
+			color: token(color-primary-400);
+		}
+	}
+}

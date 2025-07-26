@@ -1,0 +1,209 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "../layout/breakpoint" as *;
+
+/*
+=================================================
+Grid Template Columns
+================================================= 
+*/
+@mixin utilities-grid-columns($delimiter, $class, $max, $breakpoint-map) {
+	// Base (non-responsive)
+	@for $i from 1 through $max {
+		.#{$class}-#{$i} {
+			grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@for $i from 1 through $max {
+				.#{$breakpoint-key}#{$delimiter}#{$class}-#{$i} {
+					grid-template-columns: repeat(#{$i}, minmax(0, 1fr));
+				}
+			}
+		}
+	}
+}
+
+@mixin utilities-grid-columns-split($delimiter, $class, $split-map, $breakpoint-map) {
+	// Base (non-responsive)
+	@each $key, $value in $split-map {
+		.#{$class}-#{$value} {
+			grid-template-columns: #{$key};
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@each $key, $value in $split-map {
+				.#{$breakpoint-key}#{$delimiter}#{$class}-#{$value} {
+					grid-template-columns: #{$key};
+				}
+			}
+		}
+	}
+}
+
+
+/*
+=================================================
+Grid Template Rows
+================================================= 
+*/
+@mixin utilities-grid-rows($delimiter, $class, $max, $breakpoint-map) {
+	// Base (non-responsive)
+	@for $i from 1 through $max {
+		.#{$class}-#{$i} {
+			grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@for $i from 1 through $max {
+				.#{$breakpoint-key}#{$delimiter}#{$class}-#{$i} {
+					grid-template-rows: repeat(#{$i}, minmax(0, 1fr));
+				}
+			}
+		}
+	}
+}
+
+@mixin utilities-grid-rows-split($delimiter, $class, $split-map, $breakpoint-map) {
+	// Base (non-responsive)
+	@each $key, $value in $split-map {
+		.#{$class}-#{$value} {
+			grid-template-rows: #{$key};
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@each $key, $value in $split-map {
+				.#{$breakpoint-key}#{$delimiter}#{$class}-#{$value} {
+					grid-template-rows: #{$key};
+				}
+			}
+		}
+	}
+}
+
+/*
+=================================================
+Grid Column Span
+================================================= 
+*/
+@mixin utilities-grid-col-span($delimiter, $class, $max, $breakpoint-map) {
+	// Base (non-responsive)
+	@for $i from 1 through $max {
+		.#{$class}-#{$i} {
+			grid-column: span #{$i} / span #{$i};
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@for $i from 1 through $max {
+				.#{$breakpoint-key}#{$delimiter}#{$class}-#{$i} {
+					grid-column: span #{$i} / span #{$i};
+				}
+			}
+		}
+	}
+}
+
+/*
+=================================================
+Grid Row Span
+================================================= 
+*/
+@mixin utilities-grid-row-span($delimiter, $class, $max, $breakpoint-map) {
+	// Base (non-responsive)
+	@for $i from 1 through $max {
+		.#{$class}-#{$i} {
+			grid-row: span #{$i} / span #{$i};
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@for $i from 1 through $max {
+				.#{$breakpoint-key}#{$delimiter}#{$class}-#{$i} {
+					grid-row: span #{$i} / span #{$i};
+				}
+			}
+		}
+	}
+}
+
+/*
+=================================================
+Grid Column Start/End
+================================================= 
+*/
+@mixin utilities-grid-col-start-end($delimiter, $start-class, $end-class, $max, $breakpoint-map) {
+	// Base
+	@for $i from 1 through ($max + 1) {
+		.#{$start-class}-#{$i} {
+			grid-column-start: #{$i};
+		}
+		.#{$end-class}-#{$i} {
+			grid-column-end: #{$i};
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@for $i from 1 through ($max + 1) {
+				.#{$breakpoint-key}#{$delimiter}#{$start-class}-#{$i} {
+					grid-column-start: #{$i};
+				}
+				.#{$breakpoint-key}#{$delimiter}#{$end-class}-#{$i} {
+					grid-column-end: #{$i};
+				}
+			}
+		}
+	}
+}
+
+/*
+=================================================
+Grid Row Start/End
+================================================= 
+*/
+@mixin utilities-grid-row-start-end($delimiter, $start-class, $end-class, $max, $breakpoint-map) {
+	// Base
+	@for $i from 1 through ($max + 1) {
+		.#{$start-class}-#{$i} {
+			grid-row-start: #{$i};
+		}
+		.#{$end-class}-#{$i} {
+			grid-row-end: #{$i};
+		}
+	}
+
+	// Responsive
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@for $i from 1 through ($max + 1) {
+				.#{$breakpoint-key}#{$delimiter}#{$start-class}-#{$i} {
+					grid-row-start: #{$i};
+				}
+				.#{$breakpoint-key}#{$delimiter}#{$end-class}-#{$i} {
+					grid-row-end: #{$i};
+				}
+			}
+		}
+	}
+}

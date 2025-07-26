@@ -1,0 +1,12 @@
+/*
+=================================================
+Motion
+================================================= 
+*/
+@mixin tokens-motion($prefix, $token, $motion-map) {
+	:root {
+		@each $key, $value in $motion-map {
+			--#{$prefix}-#{$token}-#{$key}: #{$value};
+		}
+	}
+}

@@ -1,0 +1,27 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:map";
+@use "sass:meta";
+@use "px-to-rem" as *;
+
+/*
+=================================================
+Min Widths
+================================================= 
+*/
+@function calc-min-widths($breakpoints) {
+	@if meta.type-of($breakpoints) != "map" {
+		@error "calc-min-widths() expects a map but got '#{meta.type-of($container-widths)}'"
+	}
+
+	$min-widths: ();
+
+	@each $breakpoint, $value in $breakpoints {
+		$min-widths: map.set($min-widths, $breakpoint, px-to-rem($value));
+	}
+
+	@return $min-widths;
+}

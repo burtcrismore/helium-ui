@@ -1,0 +1,26 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:map";
+@use "../../functions/px-to-rem" as *;
+
+/*
+=================================================
+Radius
+================================================= 
+*/
+@mixin tokens-radius($prefix, $token, $base-map, $alias-map) {
+	:root {
+		@each $key, $value in $alias-map {
+			$base-value: map.get($base-map, $value);
+
+			@if $base-value {
+				--#{$prefix}-#{$token}-#{$key}: #{px-to-rem($base-value)};
+			} @else {
+				@warn "Token `#{$value}` not found in `#{$token}` base map for `#{$key}`.";
+			}
+		}
+	}
+}

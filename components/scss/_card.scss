@@ -1,0 +1,36 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "@heliumFunctions/token-prefix" as *;
+
+/*
+=================================================
+Card
+================================================= 
+*/
+
+.card {
+	position: relative;
+	transition: all token(duration-fast) token(timing-move);
+
+	&:hover {
+		translate: 0 -.25rem;
+		box-shadow: token(elevation-high);
+	}
+
+	&:focus-visible {
+		outline: 2px solid hotpink;
+		outline-offset: 2px;
+	}
+
+	&__link {
+		text-decoration: none;
+		color: token(color-content-default);
+
+		&:focus {
+			outline: none;
+		}
+	}
+}

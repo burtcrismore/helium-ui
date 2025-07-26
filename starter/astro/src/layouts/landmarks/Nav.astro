@@ -1,0 +1,48 @@
+---
+import headerNav from "src/data/headerNav";
+const currentPath = Astro.url.pathname;
+
+---
+
+<nav class="header-nav">
+	<div class="header-nav__container">
+		<div class="header-nav__brand">
+			<a href="/" class="header-nav__brand-link">
+				<div class="header-nav__brand-mark">
+					<svg class="header-nav__brand-mark-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-label="Helium logo">
+						<defs>
+							<linearGradient id="header-nav__brand-mark--gradient" gradientTransform="rotate(90)">
+								<stop class="header-nav__brand-mark--stop1" offset="0%" />
+								<stop class="header-nav__brand-mark--stop2" offset="100%" />
+							</linearGradient>
+						</defs>
+						<path class="header-nav__brand-mark-path" d="M0,0v100h100V0H0ZM80,58.8c0,.77-.3,1.5-.85,2.04l-14.22,14.22c-1.82,1.82-4.93.53-4.93-2.04v-10.14c0-1.6-1.29-2.89-2.89-2.89h-14.22c-1.6,0-2.89,1.29-2.89,2.89v14.22c0,1.6-1.29,2.89-2.89,2.89h-14.22c-1.6,0-2.89-1.29-2.89-2.89v-35.91c0-.77.3-1.5.85-2.04l14.22-14.22c1.82-1.82,4.93-.53,4.93,2.04v10.14c0,1.6,1.29,2.89,2.89,2.89h14.22c1.6,0,2.89-1.29,2.89-2.89v-14.22c0-1.6,1.29-2.89,2.89-2.89h14.22c1.6,0,2.89,1.29,2.89,2.89v35.92Z"/>
+					</svg>
+					<span class="header-nav__brand-mark-bg"></span>
+				</div>
+				<span class="header-nav__brand-type">Helium</span>
+			</a>
+		</div>
+		<div class="header-nav__content">
+			<ul class="header-nav__list">
+				{headerNav.map(nav => (
+					<li class="header-nav__item">
+						<a 
+							href={nav.href} 
+							class="header-nav__link" 
+							aria-current={nav.href === currentPath ? "page" : false}>{nav.label}
+						</a>
+					</li>
+				))}
+			</ul>
+			<div class="header-nav__control">
+				<button id="theme-toggle" class="header-nav__theme-switcher">
+					<div class="icon-sun"><i class="fa-regular fa-sun-bright"></i></div>
+					<div class="icon-moon none"><i class="fa-regular fa-moon"></i></div>
+				</button>
+			</div>
+		</div>
+	</div>
+</nav>
+
+<script src="@heliumComponentScripts/themeToggle.js"></script>

@@ -1,0 +1,12 @@
+/*
+=================================================
+Opacity
+================================================= 
+*/
+@mixin tokens-opacity($prefix, $token, $map) {
+	:root {
+		@each $key, $value in $map {
+			--#{$prefix}-#{$token}-#{$key}: #{$value};
+		}
+	}
+}

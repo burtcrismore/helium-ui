@@ -1,0 +1,35 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "../layout/breakpoint" as *;
+
+/*
+=================================================
+Semantic
+================================================= 
+*/
+@mixin utilities-semantic($delimiter, $map, $breakpoint-map) {
+	// Base classes
+	@each $class, $props in $map {
+		.#{$class} {
+			@each $prop, $value in $props {
+				#{$prop}: #{$value};
+			}
+		}
+	}
+
+	// Responsive classes
+	@each $breakpoint-key, $breakpoint-val in $breakpoint-map {
+		@include breakpoint($breakpoint-key, $breakpoint-map) {
+			@each $class, $props in $map {
+				.#{$breakpoint-key}#{$delimiter}#{$class} {
+					@each $prop, $value in $props {
+						#{$prop}: #{$value};
+					}
+				}
+			}
+		}
+	}
+}

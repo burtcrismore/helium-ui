@@ -1,0 +1,32 @@
+---
+import "@heliumComponentStyles/_card.scss";
+import "@heliumComponentStyles/_image.scss";
+const { content } = Astro.props;
+const { image, title, link, description, cta } = content;
+---
+<article class="card" tabindex="0">
+	{image && 
+		<img src={image.src} alt={image.alt} class="card__image image-fluid" />
+	}
+	<div class="card__content">
+		<!-- {tag && <span class="card__tag">{tag}</span>} -->
+		<!-- {eyebrow && <span class="card__tag">{eyebrow}</span>} -->
+		{title && 
+			<h3 class="card__heading subheading">
+				{link && (
+					<a class="card__link" href={link.url} target={link.target} tabindex="-1">
+						{title}
+					</a>
+				)}
+			</h3>
+		}
+		{description && 
+	 		<p class="card__desc">{description}</p>
+		}
+		{cta && 
+			<span>{cta}</span>
+		}
+  </div>
+</article>
+
+<script src="@heliumComponentScripts/card.js"></script>

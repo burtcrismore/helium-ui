@@ -1,0 +1,37 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:map";
+@use "../../functions/px-to-rem" as *;
+@use "../../functions/calc-max-widths" as *;
+@use "./breakpoint" as *;
+
+/*
+=================================================
+Container
+================================================= 
+*/
+@mixin container($padding-base, $padding-map, $widths, $breakpoints) {
+	$padding-base-rem: px-to-rem($padding-base);
+
+	.container {
+		width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		padding-left: $padding-base-rem;
+		padding-right: $padding-base-rem;
+
+		$max-widths: calc-max-widths($widths);
+
+		@each $breakpoint, $value in $max-widths {
+			@include breakpoint($breakpoint, $breakpoints) {
+				$padding-rem: px-to-rem(map.get($padding-map, $breakpoint));
+				padding-left: $padding-rem;
+				padding-right: $padding-rem;
+				max-width: $value;
+			}
+		}
+	}
+}

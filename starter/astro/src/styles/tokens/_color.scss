@@ -1,0 +1,130 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "@heliumMixins/tokens/tokens-color" as *;
+@use "@styles/base/settings" as *;
+@use "@heliumFunctions/token-prefix" as *;
+
+/*
+=================================================
+Tokens
+================================================= 
+*/
+$token-color-map: (
+
+// "neutral-black": hsl(220, 20%, 5%),
+"ink-000": hsl(220, 25%, 98%),
+"ink-100": hsl(220, 25%, 95%),
+"ink-200": hsl(220, 25%, 85%),
+"ink-300": hsl(220, 25%, 75%),
+"ink-400": hsl(220, 25%, 65%),
+"ink-500": hsl(220, 25%, 55%),
+"ink-600": hsl(220, 25%, 45%),
+"ink-700": hsl(220, 25%, 35%),
+"ink-800": hsl(220, 25%, 25%),
+"ink-900": hsl(220, 25%, 15%),
+"ink-1000": hsl(220, 25%, 5%),
+
+"ink-transparent-100": hsla(220, 25%, 5%, token(opacity-disabled)),
+"ink-transparent-200": hsla(220, 25%, 5%, token(opacity-muted)),
+"ink-transparent-300": hsla(220, 25%, 5%, token(opacity-overlay)),
+
+"cobalt-100": hsl(220, 75%, 95%),
+"cobalt-200": hsl(220, 75%, 85%),
+"cobalt-300": hsl(220, 75%, 75%),
+"cobalt-400": hsl(220, 75%, 65%),
+"cobalt-500": hsl(220, 75%, 55%),
+"cobalt-600": hsl(220, 75%, 45%),
+"cobalt-700": hsl(220, 75%, 35%),
+"cobalt-800": hsl(220, 75%, 25%),
+"cobalt-900": hsl(220, 75%, 15%),
+"cobalt-1000": hsl(220, 75%, 5%),
+);
+
+$token-color-light: (
+	"brand-primary": "cobalt-600",
+
+	"surface-page": "ink-000",
+	"surface-default": "ink-000",
+	"surface-subtle": "ink-100",
+	"surface-strong": "ink-600",
+	"surface-inverse": "ink-900",
+	// "surface-hover": "",
+	// "surface-selected": "",
+	// "surface-disabled": "ink-transparent-100",
+	// "surface-overlay": "ink-transparent-300",
+	// "surface-info": "",
+	// "surface-success": "",
+	// "surface-warning": "",
+	// "surface-danger": "",
+	// "surface-discovery": "",
+
+	"content-default": "ink-900",
+	"content-subtle": "ink-700",
+	"content-inverse": "ink-100",
+	"content-link-default": "cobalt-600",
+	"content-link-default-hover": "cobalt-700",
+	// "content-disbabled": "",
+	// "content-info": "",
+	// "content-success": "",
+	// "content-warning": "",
+	// "content-danger": "",
+	// "content-discovery": "",
+
+	"border-default": "ink-300",
+	"border-subtle": "ink-200",
+	"border-strong": "ink-500",
+	"border-inverse": "ink-100",
+	// "border-selected": "",
+	// "border-info": "",
+	// "border-success": "",
+	// "border-warning": "",
+	// "border-danger": "",
+	// "border-discovery": "",
+
+	"action-primary": "cobalt-600",
+	"action-primary-hover": "cobalt-700",
+	"action-content-primary": "ink-000",
+
+	"action-secondary": "ink-200",
+	"action-secondary-hover": "ink-400",
+	"action-content-secondary": "ink-900",
+
+	// "action-tertiary": "",
+	"action-tertiary-hover": "ink-200",
+	"action-content-tertiary": "cobalt-600",
+	"action-content-tertiary-hover": "cobalt-700",
+	
+	"action-surface-inverse": "ink-100",
+	// "action-disabled": "",
+
+	// "link-default": "cobalt-600",
+	// "link-hover": "cobalt-700",
+	// "link-inverse": "cobalt-100",
+
+
+
+
+
+	// "action-primary": "cobalt-600",
+	// "action-primary-hover": "cobalt-700",
+	// "on-action": "ink-000",
+	// "background": "ink-000",
+	// "content-default": "ink-1000",
+	// "surface-brand": "cobalt-600"
+);
+
+$token-color-dark: (
+	// "action-primary": "cobalt-500",
+	// "action-primary-hover": "cobalt-600",
+	// "on-action": "ink-1000",
+	// "background": "ink-1000",
+	// "content-default": "ink-000",
+	// "surface-brand": "cobalt-500"
+);
+
+$token-color-name: "color";
+
+@include tokens-color($prefix, $token-color-name, $token-color-map, $token-color-light, $token-color-dark);

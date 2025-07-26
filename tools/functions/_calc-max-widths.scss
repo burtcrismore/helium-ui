@@ -1,0 +1,27 @@
+/*
+=================================================
+Modules
+================================================= 
+*/
+@use "sass:map";
+@use "sass:meta";
+@use "px-to-rem" as *;
+
+/*
+=================================================
+Max Widths
+================================================= 
+*/
+@function calc-max-widths($container-widths) {
+	@if meta.type-of($container-widths) != "map" {
+		@error "calc-max-widths() expects a map but got '#{meta.type-of($container-widths)}'"
+	}
+
+	$max-widths: ();
+
+	@each $breakpoint, $value in $container-widths {
+		$max-widths: map.set($max-widths, $breakpoint, px-to-rem($value));
+	}
+
+	@return $max-widths;
+}
