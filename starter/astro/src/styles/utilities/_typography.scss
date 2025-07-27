@@ -3,9 +3,9 @@
 Modules
 ================================================= 
 */
-@use "@heliumMixins/utilities/utilities-semantic" as *;
-@use "@heliumFunctions/token-prefix" as *;
-@use "@styles/base/settings" as *;
+@use "@heliumTools/config" as *;
+@use "@heliumTools/functions/token-prefix" as *;
+@use "@heliumTools/mixins/utilities/utilities-semantic" as *;
 
 /*
 =================================================

@@ -3,9 +3,10 @@
 Modules
 ================================================= 
 */
-@use "@heliumMixins/utilities/utilities-space" as *;
+@use "@heliumTools/config" as *;
 @use "@styles/tokens/space" as *;
-@use "@styles/base/settings" as *;
+@use "@heliumTools/mixins/utilities/utilities-space" as *;
+
 
 /*
 =================================================

@@ -3,9 +3,9 @@
 Modules
 ================================================= 
 */
-@use "@heliumMixins/layout/breakpoint" as *;
-@use "@styles/base/settings" as *;
-@use "@heliumFunctions/token-prefix" as *;
+@use "@heliumTools/config" as *;
+@use "@heliumTools/functions/token-prefix" as *;
+@use "@heliumTools/mixins/layout/breakpoint" as *;
 
 /*
 =================================================

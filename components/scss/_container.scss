@@ -3,12 +3,12 @@
 Modules
 ================================================= 
 */
-@use "@styles/base/settings" as *;
-@use "@heliumMixins/layout/container" as *;
+@use "@heliumTools/config" as *;
+@use "@heliumTools/mixins/layout/container" as *;
 
 /*
 =================================================
 Container
 ================================================= 
 */
-@include container($padding-base, $padding-map, $container-widths, $breakpoints);
+@include container($container-padding, $container-widths, $breakpoints);

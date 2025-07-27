@@ -3,8 +3,8 @@
 Modules
 ================================================= 
 */
-@use "@heliumMixins/utilities/utilities-atomic" as *;
-@use "@styles/base/settings" as *;
+@use "@heliumTools/config" as *;
+@use "@heliumTools/mixins/utilities/utilities-atomic" as *;
 
 /*
 =================================================

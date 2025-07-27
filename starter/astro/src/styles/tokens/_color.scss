@@ -3,9 +3,9 @@
 Modules
 ================================================= 
 */
-@use "@styles/base/settings" as *;
-@use "@heliumMixins/tokens/tokens-color" as *;
-@use "@heliumFunctions/token-prefix" as *;
+@use "@heliumTools/config" as *;
+@use "@heliumTools/mixins/tokens/tokens-color" as *;
+@use "@heliumTools/functions/token-prefix" as *;
 
 /*
 =================================================
