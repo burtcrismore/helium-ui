@@ -7,7 +7,6 @@
     "paths": {
       "@heliumComponentStyles/*": ["../../components/scss/*"],
       "@heliumComponentScripts/*": ["../../components/js/*"],
-      "@heliumGetTools/*": ["../../tools/*"],
       "@projectGetTools/*": ["../../tools/*"],
       "@styles/*": ["src/styles/*"],
       "@scripts/*": ["src/scripts/*"],
