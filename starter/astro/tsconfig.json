@@ -9,6 +9,7 @@
       "@heliumFunctions/*": ["../../tools/functions/*"],
       "@heliumComponentStyles/*": ["../../components/scss/*"],
       "@heliumComponentScripts/*": ["../../components/js/*"],
+      "@projectSettings/*": ["../../starter/astro/src/styles/base/*"],
       "@styles/*": ["src/styles/*"],
       "@scripts/*": ["src/scripts/*"],
     }

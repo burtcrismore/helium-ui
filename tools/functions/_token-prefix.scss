@@ -3,7 +3,7 @@
 Modules
 ================================================= 
 */
-@use 'sass:meta';
+@use "@projectSettings/settings" as *;
 
 /*
 =================================================
@@ -11,10 +11,5 @@ Get Token
 ================================================= 
 */
 @function token($name) {
-	$prefix: if(
-		meta.global-variable-exists("prefix"),
-		meta.global-variable("prefix"),
-		"hui"
-	);
 	@return var(--#{$prefix}-#{$name});
 }
