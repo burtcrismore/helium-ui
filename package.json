@@ -1,6 +1,6 @@
 {
   "name": "@burtcrismore/helium-ui",
-  "version": "1.0.0-alpha.1",
+  "version": "0.2.0",
   "description": "A lightweight, semantic-driven, front-end framework.",
   "main": "index.js",
   "scripts": {

@@ -3,8 +3,7 @@
 Modules
 ================================================= 
 */
-// @use "@heliumMixins/layout/breakpoint" as *;
-@use "@styles/base/settings" as *;
+@use 'sass:meta';
 
 /*
 =================================================
@@ -12,5 +11,10 @@ Get Token
 ================================================= 
 */
 @function token($name) {
+	$prefix: if(
+		meta.global-variable-exists("prefix"),
+		meta.global-variable("prefix"),
+		"hui"
+	);
 	@return var(--#{$prefix}-#{$name});
 }
