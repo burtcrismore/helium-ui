@@ -3,12 +3,13 @@
 Modules
 ================================================= 
 */
-@use "../../tools/config" as *;
-@use "../../tools/mixins/layout/container" as *;
+@use "@styles/base/settings" as *;
 
 /*
 =================================================
-Container
+Get Token
 ================================================= 
 */
-@include container($container-padding, $container-widths, $breakpoints);
+@function token($name) {
+	@return var(--#{$prefix}-#{$name});
+}

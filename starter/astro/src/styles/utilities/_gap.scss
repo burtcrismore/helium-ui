@@ -3,10 +3,9 @@
 Modules
 ================================================= 
 */
-@use "@projectGetTools/config" as *;
+@use "@styles/base/settings" as *;
 @use "@styles/tokens/space" as *;
-@use "@projectGetTools/mixins/utilities/utilities-space" as *;
-
+@use "@tools/mixins/utilities/utilities-space" as *;
 
 /*
 =================================================

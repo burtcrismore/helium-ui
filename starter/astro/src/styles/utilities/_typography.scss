@@ -3,9 +3,9 @@
 Modules
 ================================================= 
 */
-@use "@projectGetTools/config" as *;
-@use "@projectGetTools/functions/token-prefix" as *;
-@use "@projectGetTools/mixins/utilities/utilities-semantic" as *;
+@use "@styles/base/settings" as *;
+@use "@tools/mixins/utilities/utilities-semantic" as *;
+@use "@styles/functions/token-prefix" as *;
 
 /*
 =================================================

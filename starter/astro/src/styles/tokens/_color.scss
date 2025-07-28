@@ -3,9 +3,9 @@
 Modules
 ================================================= 
 */
-@use "@projectGetTools/config" as *;
-@use "@projectGetTools/mixins/tokens/tokens-color" as *;
-@use "@projectGetTools/functions/token-prefix" as *;
+@use "@styles/base/settings" as *;
+@use "@tools/mixins/tokens/tokens-color" as *;
+@use "@styles/functions/token-prefix" as *;
 
 /*
 =================================================

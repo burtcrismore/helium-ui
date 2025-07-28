@@ -5,9 +5,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@heliumComponentStyles/*": ["../../components/scss/*"],
-      "@heliumComponentScripts/*": ["../../components/js/*"],
-      "@projectGetTools/*": ["../../tools/*"],
+      "@tools/*": ["../../tools/*"],
       "@styles/*": ["src/styles/*"],
       "@scripts/*": ["src/scripts/*"],
     }
