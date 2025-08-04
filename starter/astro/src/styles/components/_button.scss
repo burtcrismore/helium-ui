@@ -26,10 +26,10 @@ Button
 
 
 	&__icon--left {
-		margin-right: token(space-xsm-5);
+		margin-right: token(space-xs-5);
 	}
 	&__icon--right {
-		margin-left: token(space-xsm-5);
+		margin-left: token(space-xs-5);
 	}
 
 	&:focus {
@@ -41,7 +41,7 @@ Button
 	}
 
 	&--primary {
-		padding: token(space-xsm-5) token(space-md-2);
+		padding: token(space-xs-5) token(space-md-2);
 		background-color: token(color-action-primary);
 		color: token(color-action-content-primary);
 
@@ -51,7 +51,7 @@ Button
 	}
 
 	&--secondary {
-		padding: token(space-xsm-5) token(space-md-2);
+		padding: token(space-xs-5) token(space-md-2);
 		background-color: token(color-action-secondary);
 		color: token(color-content-secondary);
 

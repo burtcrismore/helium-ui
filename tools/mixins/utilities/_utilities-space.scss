@@ -4,11 +4,12 @@ Modules
 ================================================= 
 */
 @use "sass:meta";
+@use "sass:map";
 @use "../layout/breakpoint" as *;
 
 /*
 =================================================
-Margin
+Space
 ================================================= 
 */
 @mixin utilities-space($prefix, $delimiter, $token-name, $space-map, $token-alias, $breakpoint-map) {
@@ -47,6 +48,26 @@ Margin
 					}
 				}
 			}
+		}
+	}
+}
+
+@mixin utilities-space-styles($map, $breakpoint-map) {
+	@each $class, $properties in $map {
+		.#{$class} {
+		@each $prop, $responsive-values in $properties {
+			@if map.has-key($responsive-values, base) {
+				#{$prop}: map.get($responsive-values, base);
+			}
+
+			@each $breakpoint, $value in $responsive-values {
+				@if $breakpoint != base {
+				@include breakpoint($breakpoint, $breakpoint-map) {
+					#{$prop}: $value;
+				}
+				}
+			}
+		}
 		}
 	}
 }
